@@ -48,4 +48,3 @@ while (T<Tmax)
 end
 
 plot(XSeries)
-

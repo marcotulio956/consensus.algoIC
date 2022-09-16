@@ -1,31 +1,11 @@
-clc, clear
+nAgents = 4;
+xAxisL = 10;
+X = [xAxisL.*rand(1,nAgents)]'
+% X = [2 4 6 8]' % Or specified
 
-X=[2,4,6,8]';
-dt=0.001;
+% Dynamics
+Din = ones(nAgents,nAgents)-eye(nAgents)
+Adj = sum(Din,2).*eye(nAgents)
 
-Adj=[
-    0 1 1 1; 
-    1 0 1 1; 
-    1 1 0 1; 
-    1 1 1 0
-];
-
-Din=eye(4);
-Lagran=Din-Adj;
-
-Lagran
-
-X
-
-for row = 1:4
-    sumDx = 0;
-    for col = 1:4
-        if col ~= row
-            sumDx = sumDx + (Lagran(row,col)*(X(row)-X(col)));
-        end
-    end
-    X(row)=X(row)+sumDx*dt;
-end
-
-
-X
+Laplacian=Din-Adj
+Laplacian(1,:)=zeros(1,nAgents)
