@@ -12,4 +12,4 @@
 - Matching Speeds
 - Bounded
 
-![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_leader-1d_20agents.png)
+![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/boids_tunned_200agents.png)
