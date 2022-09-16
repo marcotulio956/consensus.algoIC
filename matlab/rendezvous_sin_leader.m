@@ -45,7 +45,7 @@ u(1,:)=8*cos(t0*10);
 
 %Plotting
 plot(t,y)
-title("Rendevouz with Sinusoidal Leader")
+title("Rendezvous with Sinusoidal Leader")
 subtitle("1D")
 ylabel("X_i")
 xlabel("t")

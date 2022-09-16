@@ -43,7 +43,7 @@ u=repmat(u,nAgents,1);
 
 %Plotting
 plot(t,y)
-title("Rendevouz with Leader")
+title("Rendezvous with Leader")
 subtitle("1D")
 ylabel("X_i")
 xlabel("t")
