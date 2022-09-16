@@ -38,8 +38,18 @@ sys = ss(A,B,C,D)
 % Constant Input for Every Agent(turn on?)
 u=1*t0;
 u=repmat(u,nAgents,1);
-u(1,:)=sin(t0*X(1))*X(1);
+u(1,:)=8*cos(t0*10);
 
-plot(t0,u(1,:))
+%Sim
+[y,t]=lsim(sys,u,t0,X);
 
-u(1,:)
+%Plotting
+plot(t,y)
+title("Rendevouz with Sinusoidal Leader")
+subtitle("1D")
+ylabel("X_i")
+xlabel("t")
+yline(y(1),'-','start');
+legend('Leader');
+ylim([0 xAxisL])
+grid

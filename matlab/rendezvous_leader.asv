@@ -25,12 +25,11 @@ Din = ones(nAgents,nAgents)-eye(nAgents)
 Adj = sum(Din,2).*eye(nAgents)
 
 Laplacian=Din-Adj;
-Laplacian(1,:)=zeros(1,nAgents)
+Laplacian(1,:)=[ zeros(1,nAgents)]
 
 % State Space for Agents Positions
 A=Laplacian;
 B=zeros(nAgents,nAgents);
-B(1,:)=[1 zeros(1,nAgents-1)];
 C=eye(nAgents,nAgents);
 D=zeros(nAgents,nAgents);
 sys = ss(A,B,C,D)  
@@ -38,8 +37,16 @@ sys = ss(A,B,C,D)
 % Constant Input for Every Agent(turn on?)
 u=1*t0;
 u=repmat(u,nAgents,1);
-u(1,:)=sin(t0*X(1))*X(1);
 
-plot(t0,u(1,:))
+%Sim
+[y,t]=lsim(sys,u,t0,X);
 
-u(1,:)
+%Plotting
+plot(t,y)
+title("Rendevouz with Leader")
+subtitle("1D")
+ylabel("X_i")
+xlabel("t")
+yline(y(1),'-','Leader');
+ylim([0 xAxisL])
+grid

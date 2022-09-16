@@ -38,8 +38,6 @@ sys = ss(A,B,C,D)
 % Constant Input for Every Agent(turn on?)
 u=1*t0;
 u=repmat(u,nAgents,1);
-u(1,:)=sin(t0*X(1))*X(1);
+u(1,:)=sin(t0*(1/2));
 
-plot(t0,u(1,:))
-
-u(1,:)
+plot(u(1,:),t0)
