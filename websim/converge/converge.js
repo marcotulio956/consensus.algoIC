@@ -60,7 +60,7 @@ function drawAgent(ctx, agent) {
   ctx.translate(agent.x, agent.y);
   ctx.rotate(angle);
   ctx.translate(-agent.x, -agent.y);
-  ctx.fillStyle = "#a2b9bc";
+  ctx.fillStyle = "#8ca3a3";
   ctx.beginPath();
   ctx.moveTo(agent.x, agent.y);
   ctx.lineTo(agent.x - 15, agent.y + 5);
@@ -70,7 +70,7 @@ function drawAgent(ctx, agent) {
   ctx.setTransform(1, 0, 0, 1, 0, 0); // I
 
   if (showPath) {
-    ctx.strokeStyle = "#878f99";
+    ctx.strokeStyle = "#e0e2e4";
     ctx.beginPath();
     ctx.moveTo(agent.path[0][0], agent.path[0][1]);
     for (const point of agent.path) {
