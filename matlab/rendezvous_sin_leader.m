@@ -3,7 +3,7 @@ clear % vars
 clc   % screen
 
 % Timing
-dt=0.001;
+dt=0.01;
 Tmax=3;
 t0 = 0:dt:Tmax;
 
@@ -21,10 +21,12 @@ Laplacian=[
     1 1 1 -3
 ];
 % Or Define Dynamics
-Din = ones(nAgents,nAgents)-eye(nAgents)
-Adj = sum(Din,2).*eye(nAgents)
+Adj = ones(nAgents,nAgents)-eye(nAgents)
+Adj(:,1)=nAgents*ones(nAgents,1)
+Din = -sum(Adj,2).*eye(nAgents) 
 
-Laplacian=Din-Adj;
+Laplacian=Din+Adj;
+Laplacian(:,1)=nAgents*ones(nAgents,1)
 Laplacian(1,:)=zeros(1,nAgents)
 
 % State Space for Agents Positions
@@ -34,7 +36,6 @@ B(1,:)=[1 zeros(1,nAgents-1)];
 C=eye(nAgents,nAgents);
 D=zeros(nAgents,nAgents);
 sys = ss(A,B,C,D)  
-
 % Constant Input for Every Agent(turn on?)
 u=1*t0;
 u=repmat(u,nAgents,1);

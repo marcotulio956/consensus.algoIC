@@ -9,6 +9,9 @@
 ### Rendezvous of 20 Integrating Agents with a Moving Leader
 ![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_sin_leader-1d_20agents.png)
 
+### Rendezvous of 17 Integrating Agents with a Leader 2D
+![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_leader-2d_17agents.png)
+
 ### Boids with 200 Agents, Tunned
 - Centering with Neighbours
 - Colision Avoidance
