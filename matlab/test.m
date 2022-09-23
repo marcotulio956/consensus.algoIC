@@ -5,41 +5,37 @@ close all % figures
 
 % Timing
 dt=0.01;
-Tmax=1;
+Tmax=10;
 t0 = 0:dt:Tmax;
 
 % Agents Random Initial Positions
-nAgents = 1000;
-nDim = 2;
+nAgents = 1;
+nDim = 3;
 xAxisL = 10;
 yAxisL = 10;
-X = [min(xAxisL,yAxisL).*rand(1,2*nAgents)]';
+zAxisL = 10;
+X = [min(xAxisL,yAxisL).*rand(1,nDim*nAgents)]';
+X(1)=xAxisL/2;
+X(2)=yAxisL/2;
+X(3)=zAxisL*0.7;
 
-% Define Dynamics
-Adj = ones(nAgents,nAgents)-eye(nAgents)
-leaderAdjWeight=1
-Adj(:,1)=leaderAdjWeight*nAgents*ones(nAgents,1)
-Din = -sum(Adj,2).*eye(nAgents) 
-Laplacian=Din+Adj;
-% Laplacian(:,1)=1*ones(nAgents,1) % leader adj to all
-Laplacian(1,:)=zeros(1,nAgents) % leader dyn
-Laplacian = kron(Laplacian, eye(nDim)) % generalization to Rn
-
-% State Space for Agents Positions
-A=Laplacian;
-B=zeros(nAgents*nDim,nAgents*nDim);
-B(1,:)=[ones(1,nDim) zeros(1,nAgents*nDim-2)]; % when u is driven for leader(only)
-C=eye(nAgents*nDim,nAgents*nDim); % output Y mtx
-D=zeros(nAgents*nDim,nAgents*nDim);
+A=zeros(3,3);
+B=eye(3);
+C=eye(3);
+D=zeros(3,3);
 sys = ss(A,B,C,D)
 
-% Control Input
-u=zeros(nAgents*nDim,length(t0));
-%u(1,:)=(xAxisL/2)*(1+sin(t0)); % Leader
-%u(2,:)=(yAxisL/2)*(1+cos(t0));
-%u(1,:)=sin((1/100)*t0)
-%u(2,:)=cos((1/100)*t0)
-%u
+%u=zeros(1, length(t0)); % length(t0),nAgents*nDim
+%u=repmat(u,nDim*nAgents,1);
+u=zeros(1);
+u=repmat(u,length(t0),3);
+for i = 1:length(t0)
+    u(i,1)=xAxisL*sin(t0(i)*10); 
+    u(i,2)=yAxisL*cos(t0(i)*10); 
+    u(i,3)=0;
+end
+
+sys, X, u
 
 % Sim
 [Y,t]=lsim(sys,u,t0,X);
@@ -47,14 +43,15 @@ u=zeros(nAgents*nDim,length(t0));
 it = [1:height(Y)];
 
 hold on
-plot3(Y(it, 1),Y(it, 2), it, ':')
-for agnt = [3:2:2*nAgents]
-    plot3(Y(it, agnt),Y(it, agnt+1), it)
+for agnt = [1:nDim:nDim*nAgents]
+    plot3(Y(it, agnt),Y(it, agnt+1), Y(it, agnt+2))
 end
+
 legend('Leader')
-title("Rendezvous with Leader")
-subtitle("2D")
+title("Rendezvous with Circular Leader")
+subtitle("3D")
 xlabel("X_i")
 ylabel("X_j")
-zlabel("t")
-
+zlabel("X_k")
+Y
+t0
