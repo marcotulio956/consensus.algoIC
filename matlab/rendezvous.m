@@ -39,7 +39,7 @@ while (T<Tmax)
                 sumDx = sumDx + (Lagran(row,col)*(X(row)-X(col)));
             end
         end
-        X(row)=X(row)+sumDx*dt
+        X(row)=X(row)+sumDx*dt;
     end
     
     T=T+dt;
@@ -48,3 +48,7 @@ while (T<Tmax)
 end
 
 plot(XSeries)
+title("Rendezvous with Random Positions")
+subtitle("1D")
+ylabel("Xi")
+xlabel("t")

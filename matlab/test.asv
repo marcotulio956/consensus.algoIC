@@ -26,17 +26,15 @@ Din = -sum(Adj,2).*eye(nAgents)
 Laplacian=Din+Adj
 Laplacian(:,1)=leaderAdjWeight*ones(nAgents,1)
 Laplacian(1,:)=1*zeros(nAgents,1) % leader
-Laplacian=kron(Laplacian, [0 1]) % x x'
+Laplacian=kron(Laplacian, [1 1]) % x x'
 
-
+return
 
 Laplacian=repelem(Laplacian,nOrder,1)% temp, 2b ow
 
-accAdjWeight=1;
-
-Laplacian(4:nOrder:end,:)=kron(accAdjWeight.*ones(nAgents-1,nAgents), [0 1]) % acceleration weigths
+accAdjWeight=-0.1;
+Laplacian(4:nOrder:end,:)=kron(accAdjWeight.*ones(nAgents-1,nAgents), [1 1]) % acceleration weigths
 Laplacian(4:nOrder:end,2)=leaderAdjWeight*ones(nAgents-1,1)
-
 Laplacian=Laplacian-sum(Laplacian,2).*eye(nAgents*nOrder)
 
 Laplacian=reshape(kron(ones(nDim,1), reshape(Laplacian, 2*size(Laplacian,1), [])), size(Laplacian,1), [])
@@ -50,7 +48,7 @@ Laplacian=temp
 
 % State Space for Agents Positions
 A=Laplacian;
-B=kron(eye(nAgents*nDim), diag([0 1]))% when u drives leader(only)
+B=kron(eye(nAgents*nDim), diag([1 0]))% when u drives leader(only)
 C=eye(nOrder*nAgents*nDim)%diag(repmat([1 0],1,nAgents*nDim));% output Y mtx
 D=zeros(nAgents*nDim*nOrder);
 sys = ss(A,B,C,D)
@@ -67,9 +65,9 @@ for i = 1:length(t0);
     %u(i,2)=yAxisL*sin(t0(i)*10); 
     %u(i,3)=zAxisL*sin(t0(i)*10);
     % helice
-    u(i,2)=xAxisL/2*cos(t0(i))-yAxisL/2*sin(t0(i));
-    u(i,4)=xAxisL/2*sin(t0(i))+yAxisL/2*cos(t0(i));
-    u(i,6)=0.8*zAxisL;
+    u(i,1)=xAxisL/2*cos(t0(i))-yAxisL/2*sin(t0(i));
+    u(i,3)=xAxisL/2*sin(t0(i))+yAxisL/2*cos(t0(i));
+    u(i,5)=0.8*zAxisL;
 end
 % Sim
 [Y,t]=lsim(sys,u,t0,X);

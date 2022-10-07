@@ -8,7 +8,7 @@ Tmax=3;
 t0 = 0:dt:Tmax;
 
 % Agents Random Initial Positions
-nAgents = 20;
+nAgents = 10;
 xAxisL = 5;
 X = [xAxisL.*rand(1,nAgents)]'
 % X = [2 4 6 8]' % Or specified
