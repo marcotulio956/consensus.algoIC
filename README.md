@@ -23,7 +23,9 @@
 <img src="https://latex.codecogs.com/svg.image?u_k(t)=\sum^n_{i=1}w_{i,0}.e_{i,0}=\sum^n_{i=1}w_{i,0}(x_i-x_0),&space;\quad&space;k=[1,n]"/> 
 
 ### Single vs Double Integrator in 3D with a Healical Leader
+#### 4 Agents
 ![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_ia_vs_dia_4agents.png)
+#### 10 Agents
 ![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_ia_vs_dia_10agents.png)
 
 ### Boids with 200 Agents, Tunned
@@ -32,4 +34,4 @@
 - Matching Speeds
 - Bounded
 
-<img src="https://github.com/marcotulio956/consensus.algoIC/blob/master/img/boids_tunned_200agents.gif" alt="My Project GIF" width="500" height="600">
+<img src="https://github.com/marcotulio956/consensus.algoIC/blob/master/img/boids_tunned_200agents.gif" alt="My Project GIF" width="640" height="480">
