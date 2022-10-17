@@ -20,7 +20,7 @@
 <img src="https://latex.codecogs.com/svg.image?x(t)''=u(t)&space;\\x(t)=\int\int&space;u(t)&space;\\x_1=x,&space;x_2=x'\\x_1'=x_2,x_2'=u(t)&space;"/> 
 
 - Control Law
-<img src="https://latex.codecogs.com/svg.image?u_k(t)=\sum^n_{i=1}w_{i,0}.e_{i,0}=\sum^n_{i=1}w_{i,0}(x_i-x_0),&space;\quad&space;k=[1,n]"/> 
+<img src="https://latex.codecogs.com/svg.image?u_k(t)=\sum^n_{i=1}w_{i,0}.e_{i,0}=\sum^n_{i=1}w_{i,0}(x_i-x_0),&space;\quad&space;k=[2,n]"/> 
 
 ### Single vs Double Integrator in 3D with a Healical Leader
 #### 4 Agents
