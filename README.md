@@ -27,9 +27,6 @@
   - System
 <img src="https://latex.codecogs.com/svg.image?x''(t)=u(t)&space;\\x(t)=\int\int&space;u(t)&space;\\x_1=x,&space;x_2=x'\\x_1'=x_2,x_2'=u(t)&space;"/> 
 
-  - P Control Law
-<img src="https://latex.codecogs.com/svg.image?u_k(t)=K_p\sum^n_{i=1}w_{i,0}.e_{i,0}=K_p\sum^n_{i=1}w_{i,0}(x_i-x_0),&space;\quad&space;k=[2,n]"/> 
-
   - Viscous Term
   
 
