@@ -33,9 +33,9 @@
 <img src="https://latex.codecogs.com/svg.image?x''(t)&plus;a_1x'(t)=u(t)\\x_1=x,x_2=x'\\&space;x_1'=x_2,x_2'=u(t)-x''(t)=u(t)-a_1x_2\\&space;&space;"/> 
 
 #### 4 Agents
-![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_dumped_di_vs_di_4agents.png.png)
+![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_dumped_di_vs_di_4agents.png)
 #### 8 Agents
-![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_dumped_di_vs_di_8agents.png.png)
+![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_dumped_di_vs_di_8agents.png)
 
 
 ### Single vs Double Integrator in 3D with a Helical Leader
