@@ -44,7 +44,7 @@ u1=zeros(length(t0),nDim*nAgents);
 %u(1,:)=(xAxisL/2)*(1+sin(t0)); % Leader
 %u(2,:)=(yAxisL/2)*(1+cos(t0));
 for i = 1:length(t0)
-    % straigth line 
+    % straight line 
     %u(i,1)=-xAxisL*t0(i)/500; 
     %u(i,2)=-yAxisL*t0(i)/500; 
     %u(i,3)=-zAxisL*t0(i)/500;

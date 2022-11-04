@@ -5,11 +5,11 @@ close all % figures
 
 % Timing
 dt=0.01;
-Tmax=5;
+Tmax=10;
 t0 = 0:dt:Tmax;
 
 % Agents Random Initial Positions
-nAgents = 4;
+nAgents = 5;
 nDim = 3;
 xAxisL = 10;
 yAxisL = 10;
@@ -41,7 +41,7 @@ sys1 = ss(A1,B1,C1,D1);
 
 % PI --------------
 nCtrl = 2;
-Ki=10; Kp=10;
+Ki=1; Kp=1;
 X2= [min([xAxisL yAxisL zAxisL]).*rand(1,nDim*nAgents*nCtrl)]';
 % State Space for Agents Positions
 Laplacian2=kron(Laplacian, [Kp 0; 1 0])% x and sum(x,t) in X for all agents
@@ -116,7 +116,7 @@ ylabel("X_j")
 zlabel("X_k")
 hold off
 
-subplot(1,2,2)
+subplot(2,1,1)
 title('PI Control')
 it = [1:height(Y2)];
 hold on
