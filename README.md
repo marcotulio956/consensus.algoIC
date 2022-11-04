@@ -22,6 +22,7 @@
        
   - PI Control Law
 <img src="https://latex.codecogs.com/svg.image?u_k(t)=E_P&space;&plus;&space;E_I(t),\quad&space;k=[2,n]\\E_P=K_p\sum^n_{i=1}w_{i,0}.e_{i,0}=K_p\sum^n_{i=1}w_{i,0}(x_i-x_0)\\E_I(t)=K_i\sum_{i=-\infty}^t\sum^n_{i=1}&space;w_{i,0}.e_{i,0}(t)=K_i\sum_{i=-\infty}^t\sum^n_{i=1}&space;w_{i,0}.(x_i(t)-x_0(t))\\&space;"/> 
+
 ![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_pi_si_vs_p_si_4agents.png)
         
 **Double Integrator**
@@ -31,13 +32,17 @@
   - Viscous Term
 <img src="https://latex.codecogs.com/svg.image?x''(t)&plus;a_1x'(t)=u(t)\\x_1=x,x_2=x'\\&space;x_1'=x_2,x_2'=u(t)-x''(t)=u(t)-a_1x_2\\&space;&space;"/> 
 
+#### 4 Agents
+![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_dumped_di_vs_di_4agents.png.png)
+#### 8 Agents
+![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_dumped_di_vs_di_8agents.png.png)
+
 
 ### Single vs Double Integrator in 3D with a Helical Leader
 #### 4 Agents
 ![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_ia_vs_dia_4agents.png)
 #### 10 Agents
 ![alt text](https://github.com/marcotulio956/consensus.algoIC/blob/master/img/rzvs_ia_vs_dia_10agents.png)
-
 
 ### Boids with 200 Agents, Tunned
 - Centering with Neighbours
